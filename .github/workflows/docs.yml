@@ -20,19 +20,19 @@ jobs:
         with:
           # fetch all commits to get last updated time or other git log info
           fetch-depth: 0
-      - uses: pnpm/action-setup@v2.2.2
+      - uses: npm/action-setup@v2.2.2
         with:
-          version: 7.17.0
+          version: 8.19.4
       - name: Use Node.js ${{ matrix.node-version }}
         uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
-          cache: 'pnpm'
-      - run: pnpm i
+          cache: 'npm'
+      - run: npm i
 
       # run build script
       - name: Build VuePress site
-        run: pnpm run build
+        run: npm run build
 
       - name: Deploy to GitHub Pages
         uses: crazy-max/ghaction-github-pages@v3
