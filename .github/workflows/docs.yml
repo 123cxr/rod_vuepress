@@ -20,15 +20,11 @@ jobs:
         with:
           # fetch all commits to get last updated time or other git log info
           fetch-depth: 0
-      - uses: npm/action-setup@v2.2.2
-        with:
-          version: 8.19.4
-      - name: Use Node.js ${{ matrix.node-version }}
-        uses: actions/setup-node@v2
+      - uses: actions/setup-node@v2
         with:
           node-version: ${{ matrix.node-version }}
           cache: 'npm'
-      - run: npm i
+      - run: npm install
 
       # run build script
       - name: Build VuePress site
